@@ -19,7 +19,7 @@ public class climbing {
 
 		} else {
 			climb.set(0);
-//Button 3 means we climb
+//When button 3 is being pressed the climbing motor goes forward
 		}
 	}
 
