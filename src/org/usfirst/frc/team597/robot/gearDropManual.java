@@ -11,7 +11,7 @@ public class gearDropManual {
 	public gearDropManual(Joystick second, DoubleSolenoid gD) {
 		second = secondaryStick;
 		gD = gearDrop;
-
+//Name
 	}
 
 	public void teleopPeriodic() {
@@ -19,6 +19,8 @@ public class gearDropManual {
 			gearDrop.set(Value.kForward);
 		} else {
 			gearDrop.set(Value.kReverse);
+		
+		//If button 2 is pressed Gear will drop
 		}
 
 	}

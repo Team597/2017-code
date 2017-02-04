@@ -29,7 +29,7 @@ public class Drive {
 		intake = in;
 
 		deadzone = 0.15;
-
+//Names
 	}
 
 	public void teleopPeriodic() {
@@ -59,7 +59,7 @@ public class Drive {
 
 		} else {
 			intake.set(0);
-
+//Dead zones so the Joysticks arent as sensitive
 		}
 
 	}

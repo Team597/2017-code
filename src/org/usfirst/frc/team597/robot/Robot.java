@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
 	gearDropManual gearDrop;
 	shifting Shifter;
 	climbing Climb;
-
+//Names
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -73,7 +73,7 @@ public class Robot extends IterativeRobot {
 		gearDrop = new gearDropManual(secondaryStick, GearDrop);
 		Shifter = new shifting(shifting, leftStick, rightStick);
 		Climb = new climbing(climb, secondaryStick);
-
+//Ports
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class Robot extends IterativeRobot {
 		gearDrop.teleopPeriodic();
 		Shifter.teleopPeriodic();
 		Climb.teleopPeriodic();
-
+//Enables classes to work0-
 	}
 
 	/**

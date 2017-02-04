@@ -11,7 +11,7 @@ public class FuelDump {
 	public FuelDump(Joystick second, VictorSP fuelDump) {
 		second = secondaryStick;
 		fuelDump = dumpingFuel;
-
+//Name 
 	}
 
 	public void teleopPeriodic() {
@@ -20,6 +20,8 @@ public class FuelDump {
 
 		} else {
 			dumpingFuel.set(0);
+		
+		//button 1 means bring in Fuel
 		}
 	}
 }

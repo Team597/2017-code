@@ -14,12 +14,12 @@ public class shifting {
 	final Value torqueMode = Value.kReverse;
 
 	String driveMode = "Speed Mode";
-
+//Imports
 	public shifting(DoubleSolenoid shift, Joystick ls, Joystick rs) {
 		shift = shifting;
 		ls = leftStick;
 		rs = rightStick;
-
+//Names
 	}
 
 	public void teleopPeriodic() {
@@ -29,8 +29,10 @@ public class shifting {
 		} else {
 			shifting.set(speedMode);
 			driveMode = "SPEED";
+		//Shifts to torque or speed
 		}
 		SmartDashboard.putString("Drive Mode", driveMode);
+	//Shows Dashboard Drive Train
 	}
 
 }

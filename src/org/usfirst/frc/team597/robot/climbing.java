@@ -10,7 +10,7 @@ public class climbing {
 	public climbing(VictorSP cLB, Joystick second) {
 		second = secondaryStick;
 		cLB = climb;
-
+//Names
 	}
 
 	public void teleopPeriodic() {
@@ -19,7 +19,7 @@ public class climbing {
 
 		} else {
 			climb.set(0);
-
+//Button 3 means we climb
 		}
 	}
 
