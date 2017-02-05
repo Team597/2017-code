@@ -9,8 +9,8 @@ public class gearDropManual {
 	DoubleSolenoid gearDrop;
 
 	public gearDropManual(Joystick second, DoubleSolenoid gD) {
-		second = secondaryStick;
-		gD = gearDrop;
+		secondaryStick = second ;
+		gearDrop  = gD;
 //Name
 	}
 

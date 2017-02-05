@@ -9,8 +9,8 @@ public class FuelDump {
 	VictorSP dumpingFuel;
 
 	public FuelDump(Joystick second, VictorSP fuelDump) {
-		second = secondaryStick;
-		fuelDump = dumpingFuel;
+		secondaryStick = second;
+		dumpingFuel = fuelDump;
 //Name 
 	}
 

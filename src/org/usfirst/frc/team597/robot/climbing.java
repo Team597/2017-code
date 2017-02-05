@@ -8,9 +8,9 @@ public class climbing {
 	Joystick secondaryStick;
 
 	public climbing(VictorSP cLB, Joystick second) {
-		second = secondaryStick;
-		cLB = climb;
-//Names
+		secondaryStick = second;
+		climb = cLB;
+		// Names
 	}
 
 	public void teleopPeriodic() {
@@ -19,7 +19,7 @@ public class climbing {
 
 		} else {
 			climb.set(0);
-//When button 3 is being pressed the climbing motor goes forward
+			// When button 3 is being pressed the climbing motor goes forward
 		}
 	}
 
