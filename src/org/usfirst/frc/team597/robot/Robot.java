@@ -41,6 +41,8 @@ public class Robot extends IterativeRobot {
 	gearDropManual gearDrop;
 	shifting Shifter;
 	climbing Climb;
+	driveBackIntake dBI;
+	
 //Names
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -68,11 +70,14 @@ public class Robot extends IterativeRobot {
 		GearDrop = new DoubleSolenoid(0, 1);
 		shifting = new DoubleSolenoid(2, 3);
 
-		drive = new Drive(leftStick, rightStick, leftM1, leftM2, leftM3, rightM1, rightM2, rightM3, intake);
+		drive = new Drive(leftStick, rightStick, leftM1, leftM2, leftM3, rightM1, rightM2, rightM3);
 		fuelDump = new FuelDump(secondaryStick, intake);
 		gearDrop = new gearDropManual(secondaryStick, GearDrop);
 		Shifter = new shifting(shifting, leftStick, rightStick);
 		Climb = new climbing(climb, secondaryStick);
+		dBI = new driveBackIntake(leftStick,rightStick, intake);
+		
+	
 //Ports
 	}
 
@@ -121,6 +126,8 @@ public class Robot extends IterativeRobot {
 		gearDrop.teleopPeriodic();
 		Shifter.teleopPeriodic();
 		Climb.teleopPeriodic();
+		dBI.teleopPeriodic();
+		
 //Enables classes to work0-
 	}
 

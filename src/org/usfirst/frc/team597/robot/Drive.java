@@ -12,12 +12,12 @@ public class Drive {
 	VictorSP rightM1;
 	VictorSP rightM2;
 	VictorSP rightM3;
-	VictorSP intake;
+	
 
 	double deadzone;
 
 	public Drive(Joystick jsL, Joystick jsR, VictorSP lM1, VictorSP lM2, VictorSP lM3, VictorSP rM1, VictorSP rM2,
-			VictorSP in, VictorSP rM3) {
+		 VictorSP rM3) {
 		leftStick = jsL;
 		rightStick = jsR;
 		leftM1 = lM1;
@@ -26,7 +26,7 @@ public class Drive {
 		rightM1 = rM1;
 		rightM2 = rM2;
 		rightM3 = rM3;
-		intake = in;
+		
 
 		deadzone = 0.15;
 //Names
@@ -54,14 +54,10 @@ public class Drive {
 			leftM3.set(leftStick.getY());
 
 		}
-		if (leftStick.getY() < -deadzone || rightStick.getY() < -deadzone) {
-			intake.set(1);
-
-		} else {
-			intake.set(0);
+		
 //Dead zones so the Joysticks arent as sensitive
 		}
 
 	}
 
-}
+
