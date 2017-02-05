@@ -42,6 +42,8 @@ public class Robot extends IterativeRobot {
 	shifting Shifter;
 	climbing Climb;
 	driveBackIntake dBI;
+	autoPeriod auto;
+	
 	
 //Names
 	/**
@@ -76,6 +78,8 @@ public class Robot extends IterativeRobot {
 		Shifter = new shifting(shifting, leftStick, rightStick);
 		Climb = new climbing(climb, secondaryStick);
 		dBI = new driveBackIntake(leftStick,rightStick, intake);
+		auto = new autoPeriod(leftM1, leftM2, leftM3, rightM1, rightM2, rightM3);
+		
 		
 	
 //Ports
@@ -106,7 +110,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		switch (autoSelected) {
-		case customAuto:
+		case customAuto:auto.autoPeriodic();
+
+			
 			// Put custom auto code here
 			break;
 		case defaultAuto:
