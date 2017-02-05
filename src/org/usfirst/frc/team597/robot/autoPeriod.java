@@ -10,11 +10,11 @@ public class autoPeriod {
 	int driveValue;
 	double gyroValue;
 
-	VictorSP leftM1;
-	VictorSP leftM2;
+	VictorSP leftBR;
+	
 	VictorSP leftM3;
-	VictorSP rightM1;
-	VictorSP rightM2;
+	VictorSP rightBR;
+	
 	VictorSP rightM3;
 
 	Encoder leftEncoder;
@@ -29,12 +29,12 @@ public class autoPeriod {
 	autoPID autoRight;
 	autoPID autoTurn;
 
-	public autoPeriod(VictorSP lM1, VictorSP lM2, VictorSP lM3, VictorSP rM1, VictorSP rM2, VictorSP rM3) {
-		leftM1 = lM1;
-		leftM2 = lM2;
+	public autoPeriod(VictorSP lBR,  VictorSP lM3, VictorSP rBR,  VictorSP rM3) {
+		leftBR = lBR;
+	
 		leftM3 = lM3;
-		rightM1 = rM1;
-		rightM2 = rM2;
+		rightBR = rBR;
+		
 		rightM3 = rM3;
 
 		autoState = 0;
@@ -61,11 +61,11 @@ public class autoPeriod {
 			rightPID.enable();
 			leftPID.setSetpoint(driveValue);
 			rightPID.setSetpoint(driveValue);
-			leftM1.set(autoLeft.PIDValue());
-			leftM2.set(autoLeft.PIDValue());
+			
+			leftBR.set(autoLeft.PIDValue());
 			leftM3.set(-autoLeft.PIDValue());
-			rightM1.set(autoRight.PIDValue());
-			rightM2.set(autoRight.PIDValue());
+			
+			rightBR.set(autoRight.PIDValue());
 			rightM3.set(-autoRight.PIDValue());
 			if (leftPID.getError() <= 10.0 && rightPID.getError() <= 10.0) {
 				leftPID.disable();

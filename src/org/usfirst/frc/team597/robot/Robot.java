@@ -1,4 +1,4 @@
- package org.usfirst.frc.team597.robot;
+package org.usfirst.frc.team597.robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -19,11 +19,11 @@ public class Robot extends IterativeRobot {
 	final String customAuto = "My Auto";
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
-	VictorSP leftM1;
-	VictorSP leftM2;
+	VictorSP leftBR;
+
 	VictorSP leftM3;
-	VictorSP rightM1;
-	VictorSP rightM2;
+
+	VictorSP rightBR;
 	VictorSP rightM3;
 	VictorSP intake;
 	VictorSP dumpingFuel;
@@ -43,9 +43,8 @@ public class Robot extends IterativeRobot {
 	climbing Climb;
 	driveBackIntake dBI;
 	autoPeriod auto;
-	
-	
-//Names
+
+	// Names
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -55,15 +54,15 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
-		leftM1 = new VictorSP(0);
-		leftM2 = new VictorSP(1);
-		leftM3 = new VictorSP(2);
-		rightM1 = new VictorSP(3);
-		rightM2 = new VictorSP(4);
-		rightM3 = new VictorSP(5);
-		intake = new VictorSP(6);
-		dumpingFuel = new VictorSP(7);
-		climb = new VictorSP(8);
+		leftBR = new VictorSP(0);
+		leftM3 = new VictorSP(1);
+
+		rightBR = new VictorSP(2);
+		rightM3 = new VictorSP(3);
+
+		intake = new VictorSP(4);
+		dumpingFuel = new VictorSP(5);
+		climb = new VictorSP(6);
 
 		leftStick = new Joystick(0);
 		rightStick = new Joystick(1);
@@ -72,17 +71,15 @@ public class Robot extends IterativeRobot {
 		GearDrop = new DoubleSolenoid(0, 1);
 		shifting = new DoubleSolenoid(2, 3);
 
-		drive = new Drive(leftStick, rightStick, leftM1, leftM2, leftM3, rightM1, rightM2, rightM3);
+		drive = new Drive(leftStick, rightStick, leftBR, leftM3, rightBR, rightM3);
 		fuelDump = new FuelDump(secondaryStick, intake);
 		gearDrop = new gearDropManual(secondaryStick, GearDrop);
 		Shifter = new shifting(shifting, leftStick, rightStick);
 		Climb = new climbing(climb, secondaryStick);
-		dBI = new driveBackIntake(leftStick,rightStick, intake);
-		auto = new autoPeriod(leftM1, leftM2, leftM3, rightM1, rightM2, rightM3);
-		
-		
-	
-//Ports
+		dBI = new driveBackIntake(leftStick, rightStick, intake);
+		auto = new autoPeriod(leftBR, leftM3, rightBR, rightM3);
+
+		// Ports
 	}
 
 	/**
@@ -110,9 +107,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		switch (autoSelected) {
-		case customAuto:auto.autoPeriodic();
+		case customAuto:
+			auto.autoPeriodic();
 
-			
 			// Put custom auto code here
 			break;
 		case defaultAuto:
@@ -133,8 +130,8 @@ public class Robot extends IterativeRobot {
 		Shifter.teleopPeriodic();
 		Climb.teleopPeriodic();
 		dBI.teleopPeriodic();
-		
-//Enables classes to work0-
+
+		// Enables classes to work0-
 	}
 
 	/**
