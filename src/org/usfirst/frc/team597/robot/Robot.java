@@ -20,35 +20,10 @@ public class Robot extends IterativeRobot {
 	final String customAuto = "My Auto";
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
-	VictorSP leftBR;
-
-	VictorSP leftM3;
-
-	VictorSP rightBR;
-	VictorSP rightM3;
-	VictorSP intake;
-	VictorSP dumpingFuel;
-	VictorSP climb;
-	Relay light;
-
-	Joystick leftStick;
-	Joystick rightStick;
-	Joystick secondaryStick;
-
-	DoubleSolenoid GearDrop;
-	DoubleSolenoid GearDrop2;
-	DoubleSolenoid shifting;
-	DoubleSolenoid shifting2;
-	Drive drive;
-	FuelDump fuelDump;
-	gearDropManual gearDrop;
-	shifting Shifter;
-	climbing Climb;
-	Intake intakeCode;
-	Light led;
+	
 	
 
-	autoPeriod auto;
+//	autoPeriod auto;
 
 	// Names
 	/**
@@ -60,35 +35,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
-		leftBR = new VictorSP(0);
-		leftM3 = new VictorSP(4);
-
-		rightBR = new VictorSP(2);
-		rightM3 = new VictorSP(3);
-
-		intake = new VictorSP(6);
-		light = new Relay(0);
-		dumpingFuel = new VictorSP(1);
-		climb = new VictorSP(5);
-
-		leftStick = new Joystick(0);
-		rightStick = new Joystick(1);
-		secondaryStick = new Joystick(2);
-
-		GearDrop = new DoubleSolenoid(0, 1);
-		GearDrop2 = new DoubleSolenoid(2, 3);
-		shifting = new DoubleSolenoid(4, 5);
-		shifting2 = new DoubleSolenoid(6, 7);
-		drive = new Drive(leftStick, rightStick, leftBR, leftM3, rightBR, rightM3);
-		fuelDump = new FuelDump(secondaryStick, intake);
-		gearDrop = new gearDropManual(secondaryStick, GearDrop, GearDrop2);
-		led = new Light(light);
-		Shifter = new shifting(shifting, shifting2, leftStick, rightStick);
-		Climb = new climbing(climb, secondaryStick);
-		intakeCode = new Intake(secondaryStick, intake);
-		auto = new autoPeriod(leftBR, leftM3, rightBR, rightM3);
-
-		// Ports
+		
 	}
 
 	/**
@@ -117,7 +64,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		switch (autoSelected) {
 		case customAuto:
-			auto.autoPeriodic();
+			
 
 			// Put custom auto code here
 			break;
@@ -133,12 +80,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		drive.teleopPeriodic();
-		fuelDump.teleopPeriodic();
-		gearDrop.teleopPeriodic();
-		Shifter.teleopPeriodic();
-		Climb.teleopPeriodic();
-		intakeCode.teleopPeriodic();
+		
 
 		// Enables classes to work0-
 	}
