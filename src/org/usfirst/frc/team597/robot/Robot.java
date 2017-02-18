@@ -61,15 +61,15 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
 		leftBR = new VictorSP(0);
-		leftM3 = new VictorSP(1);
+		leftM3 = new VictorSP(4);
 
 		rightBR = new VictorSP(2);
 		rightM3 = new VictorSP(3);
 
-		intake = new VictorSP(4);
+		intake = new VictorSP(6);
 		light = new Relay(0);
-		dumpingFuel = new VictorSP(5);
-		climb = new VictorSP(6);
+		dumpingFuel = new VictorSP(1);
+		climb = new VictorSP(5);
 
 		leftStick = new Joystick(0);
 		rightStick = new Joystick(1);
