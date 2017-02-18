@@ -24,7 +24,7 @@ public class FuelDump {
 		//button 1 means bring in Fuel
 		}
 	
-		if (secondaryStick.getRawButton(5)) {
+		if (secondaryStick.getRawButton(3)) {
 			dumpingFuel.set(-1);
 
 		} else {

@@ -17,7 +17,7 @@ public class gearDropManual {
 	}
 
 	public void teleopPeriodic() {
-		if (secondaryStick.getRawButton(2)) {
+		if (secondaryStick.getRawButton(6)) {
 			gearDrop.set(Value.kForward);
 			gearDrop2.set(Value.kForward);
 		} else {

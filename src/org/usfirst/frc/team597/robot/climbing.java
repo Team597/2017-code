@@ -14,7 +14,7 @@ public class climbing {
 	}
 
 	public void teleopPeriodic() {
-		if (secondaryStick.getRawButton(3)) {
+		if (secondaryStick.getRawButton(5)) {
 			climb.set(1);
 
 		} else {
