@@ -57,23 +57,37 @@ public class autoPeriod {
 
 	public void autoPeriodic() {
 		if (autoState == 0) {
-			leftPID.enable();
-			rightPID.enable();
+
 			leftPID.setSetpoint(driveValue);
 			rightPID.setSetpoint(driveValue);
+			leftPID.enable();
+			rightPID.enable();			
+
+			autoState = 1;
 			
+		}
+		else if (autoState == 1) {
 			leftBR.set(autoLeft.PIDValue());
 			leftM3.set(-autoLeft.PIDValue());
 			
 			rightBR.set(autoRight.PIDValue());
 			rightM3.set(-autoRight.PIDValue());
+			
 			if (leftPID.getError() <= 10.0 && rightPID.getError() <= 10.0) {
 				leftPID.disable();
 				rightPID.disable();
-			} else {
-				leftPID.enable();
-				rightPID.enable();
+				leftBR.set(0);
+				leftM3.set(0);
+				rightBR.set(0);
+				rightM3.set(0);
+
+				autoState = 2;
 			}
+
+		}
+		else if(autoState == 2) {
+			
+		}
 
 			/*
 			 * if (leftEncoder.get() >= (driveValue)) { autoState = 1; } if
@@ -106,4 +120,4 @@ public class autoPeriod {
 		}
 	}
 
-}
+

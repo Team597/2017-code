@@ -3,6 +3,7 @@ package org.usfirst.frc.team597.robot;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -28,20 +29,25 @@ public class Robot extends IterativeRobot {
 	VictorSP intake;
 	VictorSP dumpingFuel;
 	VictorSP climb;
+	Relay light;
 
 	Joystick leftStick;
 	Joystick rightStick;
 	Joystick secondaryStick;
 
 	DoubleSolenoid GearDrop;
+	DoubleSolenoid GearDrop2;
 	DoubleSolenoid shifting;
-
+	DoubleSolenoid shifting2;
 	Drive drive;
 	FuelDump fuelDump;
 	gearDropManual gearDrop;
 	shifting Shifter;
 	climbing Climb;
-	driveBackIntake dBI;
+	Intake intakeCode;
+	Light led;
+	
+
 	autoPeriod auto;
 
 	// Names
@@ -61,6 +67,7 @@ public class Robot extends IterativeRobot {
 		rightM3 = new VictorSP(3);
 
 		intake = new VictorSP(4);
+		light = new Relay(0);
 		dumpingFuel = new VictorSP(5);
 		climb = new VictorSP(6);
 
@@ -69,14 +76,16 @@ public class Robot extends IterativeRobot {
 		secondaryStick = new Joystick(2);
 
 		GearDrop = new DoubleSolenoid(0, 1);
-		shifting = new DoubleSolenoid(2, 3);
-
+		GearDrop2 = new DoubleSolenoid(2, 3);
+		shifting = new DoubleSolenoid(4, 5);
+		shifting2 = new DoubleSolenoid(6, 7);
 		drive = new Drive(leftStick, rightStick, leftBR, leftM3, rightBR, rightM3);
 		fuelDump = new FuelDump(secondaryStick, intake);
-		gearDrop = new gearDropManual(secondaryStick, GearDrop);
-		Shifter = new shifting(shifting, leftStick, rightStick);
+		gearDrop = new gearDropManual(secondaryStick, GearDrop, GearDrop2);
+		led = new Light(light);
+		Shifter = new shifting(shifting, shifting2, leftStick, rightStick);
 		Climb = new climbing(climb, secondaryStick);
-		dBI = new driveBackIntake(leftStick, rightStick, intake);
+		intakeCode = new Intake(secondaryStick, intake);
 		auto = new autoPeriod(leftBR, leftM3, rightBR, rightM3);
 
 		// Ports
@@ -129,7 +138,7 @@ public class Robot extends IterativeRobot {
 		gearDrop.teleopPeriodic();
 		Shifter.teleopPeriodic();
 		Climb.teleopPeriodic();
-		dBI.teleopPeriodic();
+		intakeCode.teleopPeriodic();
 
 		// Enables classes to work0-
 	}
