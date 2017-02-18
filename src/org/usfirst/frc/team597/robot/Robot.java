@@ -20,10 +20,6 @@ public class Robot extends IterativeRobot {
 	final String customAuto = "My Auto";
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
-	
-	
-
-//	autoPeriod auto;
 
 	// Names
 	/**
@@ -35,7 +31,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
-		
+		// Ports
 	}
 
 	/**
@@ -64,7 +60,6 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		switch (autoSelected) {
 		case customAuto:
-			
 
 			// Put custom auto code here
 			break;
@@ -80,7 +75,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		
+	
 
 		// Enables classes to work0-
 	}
