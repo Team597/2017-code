@@ -20,12 +20,12 @@ public class Ports {
 		public static int climb = 5;
 	}
 	public static class shifting{
-		public static int rightShift1 = 6;
-		public static int rightShift2 = 7;
+		public static int Shift1 = 2;
+		public static int Shift2 = 3;
 	}
 	public static class drop{
-		public static int rightDrop1 = 2;
-		public static int rightDrop2 = 3;
+		public static int Drop1 = 0;
+		public static int Drop2 = 1;
 		
 	}
 	public static class light{

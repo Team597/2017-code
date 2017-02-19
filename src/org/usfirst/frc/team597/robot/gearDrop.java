@@ -9,7 +9,7 @@ public class gearDrop {
 	DoubleSolenoid rightgear;
 	public gearDrop(Joystick secondStick) {
 		secondstick = secondStick;
-		rightgear = new DoubleSolenoid(Ports.drop.rightDrop1, Ports.drop.rightDrop2);
+		rightgear = new DoubleSolenoid(Ports.drop.Drop1, Ports.drop.Drop2);
 	}
 
 	public void teleOp() {

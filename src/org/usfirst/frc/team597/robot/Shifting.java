@@ -10,7 +10,7 @@ public class Shifting {
 	ToggleButton toggle;
 
 	public Shifting(Joystick rightStick) {
-		rightshift = new DoubleSolenoid(Ports.shifting.rightShift1, Ports.shifting.rightShift2);
+		rightshift = new DoubleSolenoid(Ports.shifting.Shift1, Ports.shifting.Shift2);
 		rightstick = rightStick;
 		toggle = new ToggleButton();
 	}
