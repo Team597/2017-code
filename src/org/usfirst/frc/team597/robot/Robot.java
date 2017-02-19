@@ -18,8 +18,18 @@ public class Robot extends IterativeRobot {
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
 	Joystick leftStick;
-	Joystick rightstick;
-	Joystick secondstick;
+	Joystick rightStick;
+	Joystick secondStick;
+
+	Climb climb;
+	Drive drive;
+	FuelDump fueldump;
+	gearDrop geardrop;
+	Intake intake;
+	Shifting shifting;
+	Light light;
+	CameraFeed camerafeed;
+
 	// Names
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -30,10 +40,18 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
-		leftStick = new Joystick (Ports.joystick.LeftStick);
-		rightstick = new Joystick(Ports.joystick.RightStick); 
-		secondstick = new Joystick(Ports.joystick.CopilotStick);
+		leftStick = new Joystick(Ports.joystick.LeftStick);
+		rightStick = new Joystick(Ports.joystick.RightStick);
+		secondStick = new Joystick(Ports.joystick.CopilotStick);
 		// Ports
+		climb = new Climb(secondStick);
+		drive = new Drive(leftStick, rightStick);
+		fueldump = new FuelDump(secondStick);
+		geardrop = new gearDrop(secondStick);
+		intake = new Intake(secondStick);
+		shifting = new Shifting(rightStick);
+		light = new Light();
+		camerafeed = new CameraFeed();
 	}
 
 	/**
@@ -77,9 +95,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-	
-
-		// Enables classes to work0-
+		climb.teleOp();
+		drive.teleOp();
+		fueldump.teleOp();
+		geardrop.teleOp();
+		intake.teleOp();
+		light.LightOn();
+		shifting.teleOp();
+		camerafeed.teleOp();
 	}
 
 	/**

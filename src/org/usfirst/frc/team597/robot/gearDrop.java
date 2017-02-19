@@ -4,15 +4,15 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class gearDrop {
-	Joystick secondstick;
+	Joystick secondStick;
 	   Solenoid rightgear;
-	public gearDrop(Joystick secondStick) {
-		secondstick = secondStick;
+	public gearDrop(Joystick secondstick) {
+		secondStick = secondstick;
 		rightgear = new Solenoid(Ports.drop.Drop1);
 	}
 
 	public void teleOp() {
-		if (secondstick.getRawButton(1)) {
+		if (secondStick.getRawButton(1)) {
 			rightgear.set(true);
 		} else {
 			rightgear.set(false);

@@ -4,23 +4,23 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class FuelDump {
 	Joystick secondaryStick;
-	Motor fueldump;
+	Motor fuelDump;
 
 	public FuelDump(Joystick second) {
 		secondaryStick = second;
-		fueldump = new Motor();
+		fuelDump = new Motor();
 		// Name
 	}
 
 	public void teleOp() {
 		if (secondaryStick.getRawButton(1)) {
-			fueldump.teleopDump(1);
+			fuelDump.teleopDump(1);
 
 		} else if (secondaryStick.getRawButton(5)) {
-			fueldump.teleopDump(-1);
+			fuelDump.teleopDump(-1);
 
 		} else {
-			fueldump.teleopDump(0);
+			fuelDump.teleopDump(0);
 
 			// button 5 means takes out Fuel
 		}

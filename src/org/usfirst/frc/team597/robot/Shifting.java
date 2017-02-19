@@ -6,17 +6,17 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class Shifting {
 	DoubleSolenoid rightshift;
-	Joystick rightstick;
+	Joystick rightStick;
 	ToggleButton toggle;
 
-	public Shifting(Joystick rightStick) {
+	public Shifting(Joystick rightstick) {
 		rightshift = new DoubleSolenoid(Ports.shifting.Shift1, Ports.shifting.Shift2);
-		rightstick = rightStick;
+		rightStick = rightstick;
 		toggle = new ToggleButton();
 	}
 
-	public void TeleOp() {
-		toggle.input(rightstick.getRawButton(1));
+	public void teleOp() {
+		toggle.input(rightStick.getRawButton(1));
 		if (toggle.Output() == true) {
 			rightshift.set(Value.kForward);
 		} else {

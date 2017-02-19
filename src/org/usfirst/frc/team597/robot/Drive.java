@@ -4,17 +4,17 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class Drive {
 	Motor motor;
-	Joystick leftstick;
-	Joystick rightstick;
+	Joystick leftStick;
+	Joystick rightStick;
 
 
-	public Drive(Joystick leftStick, Joystick rightStick) {
+	public Drive(Joystick leftstick, Joystick rightstick) {
 		motor = new Motor();
-		leftstick = leftStick;
-		rightstick = rightStick;
+		leftStick = leftstick;
+		rightStick = rightstick;
 	}
-	public void TeleOp(){
-		motor.teleopDrive(leftstick.getY(), rightstick.getY());
+	public void teleOp(){
+		motor.teleopDrive(leftStick.getY(), rightStick.getY());
 	}
 
 }
