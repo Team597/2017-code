@@ -20,7 +20,9 @@ public class Robot extends IterativeRobot {
 	final String customAuto = "My Auto";
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
-
+	Joystick leftStick;
+	Joystick rightstick;
+	Joystick secondstick;
 	// Names
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -31,6 +33,9 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("My Auto", customAuto);
 		SmartDashboard.putData("Auto choices", chooser);
+		leftStick = new Joystick (Ports.joystick.LeftStick);
+		rightstick = new Joystick(Ports.joystick.RightStick); 
+		secondstick = new Joystick(Ports.joystick.CopilotStick);
 		// Ports
 	}
 

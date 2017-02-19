@@ -12,7 +12,7 @@ public class Motor {
 		VictorSP rightTop;
 		VictorSP climb;
 		VictorSP intake;
-		VictorSP shooter;
+		VictorSP dump;
 
 	
 	public Motor(){
@@ -21,7 +21,7 @@ public class Motor {
 		rightBR = new VictorSP(Ports.drive.RightTop);
 		rightTop = new VictorSP(Ports.drive.RightTop);
 		intake = new VictorSP(Ports.manipulator.Intake);
-		shooter = new VictorSP(Ports.manipulator.Dump);
+		dump = new VictorSP(Ports.manipulator.Dump);
 		climb = new VictorSP(Ports.climbing.climb);
 	}
 	public void teleopDrive(double x, double y){
@@ -33,8 +33,8 @@ public class Motor {
 	public void teleopClimb(double x){
 		climb.set(x);
 	}
-	public void teleopShooter(double x){
-		shooter.set(x);
+	public void teleopDump(double x){
+		dump.set(x);
 	}
 	public void teleopIntake(double x){
 		intake.set(x);

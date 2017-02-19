@@ -2,38 +2,28 @@ package org.usfirst.frc.team597.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-import edu.wpi.first.wpilibj.VictorSP;
-
 public class FuelDump {
 	Joystick secondaryStick;
-	VictorSP dumpingFuel;
+	Motor fueldump;
 
-	public FuelDump(Joystick second, VictorSP fuelDump) {
+	public FuelDump(Joystick second) {
 		secondaryStick = second;
-		dumpingFuel = fuelDump;
-//Name 
+		fueldump = new Motor();
+		// Name
 	}
 
-	public void teleopPeriodic() {
+	public void teleOp() {
 		if (secondaryStick.getRawButton(1)) {
-			dumpingFuel.set(1);
+			fueldump.teleopDump(1);
+
+		} else if (secondaryStick.getRawButton(5)) {
+			fueldump.teleopDump(-1);
 
 		} else {
-			dumpingFuel.set(0);
-		
-		//button 1 means bring in Fuel
-		}
-	
-		if (secondaryStick.getRawButton(5)) {
-			dumpingFuel.set(-1);
+			fueldump.teleopDump(0);
 
-		} else {
-			dumpingFuel.set(0);
-		
-		//button 5 means takes out Fuel
+			// button 5 means takes out Fuel
 		}
-	
-	
-	
+
 	}
 }
