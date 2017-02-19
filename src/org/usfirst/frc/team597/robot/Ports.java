@@ -24,9 +24,7 @@ public class Ports {
 		public static int Shift2 = 3;
 	}
 	public static class drop{
-		public static int Drop1 = 0;
-		public static int Drop2 = 1;
-		
+		public static int Drop1 = 0;		
 	}
 	public static class light{
 		public static int light = 0;

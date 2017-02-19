@@ -1,22 +1,21 @@
 package org.usfirst.frc.team597.robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 
 public class gearDrop {
 	Joystick secondstick;
-	DoubleSolenoid rightgear;
+	   Solenoid rightgear;
 	public gearDrop(Joystick secondStick) {
 		secondstick = secondStick;
-		rightgear = new DoubleSolenoid(Ports.drop.Drop1, Ports.drop.Drop2);
+		rightgear = new Solenoid(Ports.drop.Drop1);
 	}
 
 	public void teleOp() {
 		if (secondstick.getRawButton(1)) {
-			rightgear.set(Value.kForward);
+			rightgear.set(true);
 		} else {
-			rightgear.set(Value.kReverse);
+			rightgear.set(false);
 		}
 	}
 
